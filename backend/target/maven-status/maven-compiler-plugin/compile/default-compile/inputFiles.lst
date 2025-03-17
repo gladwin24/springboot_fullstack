@@ -1,0 +1,15 @@
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\dto\AuthRequest.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\service\UserService.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\dto\RegisterRequest.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\ManagementApplication.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\dto\AuthResponse.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\controller\AuthController.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\security\JwtAuthenticationFilter.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\entity\Student.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\repository\UserRepository.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\controller\UserController.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\entity\User.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\service\AuthService.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\entity\Teacher.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\security\SecurityConfig.java
+D:\ims\Institutional_Management\institutional_management\backend\src\main\java\com\institutional\management\security\JwtUtils.java
