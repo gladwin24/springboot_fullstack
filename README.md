@@ -1,6 +1,6 @@
 # Institutional Management System
 
-A modern Flutter application for managing institutional services with a beautiful, Cursor-like design.
+A modern Flutter application for managing institutional services with a beautiful, sleek design.
 
 ## Features
 
