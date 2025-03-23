@@ -87,7 +87,7 @@ class ServicesPage extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Theme.of(context).colorScheme.primary.withOpacity(0.1),
-              Theme.of(context).colorScheme.background,
+              Theme.of(context).colorScheme.surface,
             ],
           ),
         ),
@@ -100,7 +100,7 @@ class ServicesPage extends StatelessWidget {
                 'What can we help you with?',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.onBackground,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
               )
                   .animate()
@@ -110,7 +110,7 @@ class ServicesPage extends StatelessWidget {
               Text(
                 'Choose from our range of services',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.onBackground.withOpacity(0.7),
+                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
                     ),
               )
                   .animate()
@@ -248,19 +248,19 @@ class ServicesPage extends StatelessWidget {
         page = AccommodationsPage();
         break;
       case 'Hall Booking':
-        page = HallBookingPage();
+        page = const HallBookingPage();
         break;
       case 'Payments':
-        page = PaymentsPage();
+        page = const PaymentsPage();
         break;
       case 'Ticket Booking':
-        page = TicketBookingPage();
+        page = const TicketBookingPage();
         break;
       case 'Canteen':
-        page = CanteenPage();
+        page = const CanteenPage();
         break;
       case 'Transportation':
-        page = TransportationPage();
+        page = const TransportationPage();
         break;
       default:
         return;

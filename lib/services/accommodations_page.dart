@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AccommodationsPage extends StatefulWidget {
+  const AccommodationsPage({super.key});
+
   @override
   _AccommodationsPageState createState() => _AccommodationsPageState();
 }
@@ -53,7 +55,7 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Book Accommodation'),
+        title: const Text('Book Accommodation'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -61,21 +63,21 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // List of Available Rooms
-            Text(
+            const Text(
               'Available Rooms:',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: rooms.length,
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 2,
-                    margin: EdgeInsets.symmetric(vertical: 5),
+                    margin: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
                       leading: Image.network(
                         rooms[index]['image'],
@@ -100,24 +102,24 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Room Booking Form
             if (selectedRoom != null) ...[
               Text(
                 'Book ${selectedRoom!['type']}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Form(
                 key: _formKey,
                 child: Column(
                   children: [
                     TextFormField(
                       controller: _checkInController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Check-In Date',
                         hintText: 'Select check-in date',
                         suffixIcon: Icon(Icons.calendar_today),
@@ -145,10 +147,10 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextFormField(
                       controller: _checkOutController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Check-Out Date',
                         hintText: 'Select check-out date',
                         suffixIcon: Icon(Icons.calendar_today),
@@ -176,10 +178,10 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextFormField(
                       controller: _guestNameController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Guest Name',
                         hintText: 'Enter your name',
                         border: OutlineInputBorder(),
@@ -191,10 +193,10 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextFormField(
                       controller: _guestEmailController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Guest Email',
                         hintText: 'Enter your email',
                         border: OutlineInputBorder(),
@@ -206,10 +208,10 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextFormField(
                       controller: _guestPhoneController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Guest Phone',
                         hintText: 'Enter your phone number',
                         border: OutlineInputBorder(),
@@ -221,7 +223,7 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -230,10 +232,10 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 15),
+                        padding: const EdgeInsets.symmetric(vertical: 15),
                         backgroundColor: Colors.blue,
                       ),
-                      child: Text(
+                      child: const Text(
                         'Book Room',
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -254,7 +256,7 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Confirm Booking'),
+          title: const Text('Confirm Booking'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -272,20 +274,20 @@ class _AccommodationsPageState extends State<AccommodationsPage> {
               onPressed: () {
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             ElevatedButton(
               onPressed: () {
                 // Save the booking (you can add backend logic here)
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('Room booked successfully!'),
                     duration: Duration(seconds: 2),
                   ),
                 );
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Confirm'),
+              child: const Text('Confirm'),
             ),
           ],
         );

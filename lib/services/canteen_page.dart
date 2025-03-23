@@ -53,7 +53,7 @@ class _CanteenPageState extends State<CanteenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Canteen Food Booking'),
+        title: const Text('Canteen Food Booking'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -61,14 +61,14 @@ class _CanteenPageState extends State<CanteenPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // List of Available Food Items
-            Text(
+            const Text(
               'Available Food Items:',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: foodItems.length,
@@ -76,7 +76,7 @@ class _CanteenPageState extends State<CanteenPage> {
                   final item = foodItems[index];
                   return Card(
                     elevation: 2,
-                    margin: EdgeInsets.symmetric(vertical: 5),
+                    margin: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
                       leading: Image.network(
                         item['image'],
@@ -92,7 +92,7 @@ class _CanteenPageState extends State<CanteenPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
-                            icon: Icon(Icons.remove),
+                            icon: const Icon(Icons.remove),
                             onPressed: () {
                               setState(() {
                                 if (selectedItems.containsKey(item['name']) &&
@@ -107,10 +107,10 @@ class _CanteenPageState extends State<CanteenPage> {
                             selectedItems.containsKey(item['name'])
                                 ? selectedItems[item['name']].toString()
                                 : '0',
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                           ),
                           IconButton(
-                            icon: Icon(Icons.add),
+                            icon: const Icon(Icons.add),
                             onPressed: () {
                               setState(() {
                                 if (selectedItems.containsKey(item['name'])) {
@@ -129,30 +129,30 @@ class _CanteenPageState extends State<CanteenPage> {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Food Booking Form
-            Text(
+            const Text(
               'Special Instructions:',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Form(
               key: _formKey,
               child: Column(
                 children: [
                   TextFormField(
                     controller: _specialInstructionsController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Instructions',
                       hintText: 'Enter any special instructions',
                       border: OutlineInputBorder(),
                     ),
                     maxLines: 3,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       if (_validateSelection()) {
@@ -160,7 +160,7 @@ class _CanteenPageState extends State<CanteenPage> {
                         _showConfirmationDialog(context);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Please select at least one item.'),
                             duration: Duration(seconds: 2),
                           ),
@@ -168,10 +168,10 @@ class _CanteenPageState extends State<CanteenPage> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 15),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
                       backgroundColor: Colors.blue,
                     ),
-                    child: Text(
+                    child: const Text(
                       'Place Order',
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
@@ -196,19 +196,19 @@ class _CanteenPageState extends State<CanteenPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Confirm Order'),
+          title: const Text('Confirm Order'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Selected Items:'),
+              const Text('Selected Items:'),
               ...selectedItems.entries.map((entry) {
                 if (entry.value > 0) {
                   return Text('${entry.key} x ${entry.value}');
                 }
-                return SizedBox.shrink();
+                return const SizedBox.shrink();
               }),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                   'Special Instructions: ${_specialInstructionsController.text}'),
             ],
@@ -218,20 +218,20 @@ class _CanteenPageState extends State<CanteenPage> {
               onPressed: () {
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             ElevatedButton(
               onPressed: () {
                 // Save the order (you can add backend logic here)
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('Order placed successfully!'),
                     duration: Duration(seconds: 2),
                   ),
                 );
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Confirm'),
+              child: const Text('Confirm'),
             ),
           ],
         );

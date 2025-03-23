@@ -5,7 +5,7 @@ class NewsDetailPage extends StatelessWidget {
   final String description;
   final String imageUrl;
 
-  const NewsDetailPage({
+  const NewsDetailPage({super.key, 
     required this.title,
     required this.description,
     required this.imageUrl,
@@ -15,7 +15,7 @@ class NewsDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('News Detail'),
+        title: const Text('News Detail'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -31,15 +31,15 @@ class NewsDetailPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               description,
               style: TextStyle(

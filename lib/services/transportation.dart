@@ -45,7 +45,7 @@ class _TransportationPageState extends State<TransportationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Transportation Booking'),
+        title: const Text('Transportation Booking'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -53,21 +53,21 @@ class _TransportationPageState extends State<TransportationPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // List of Available Transportation Options
-            Text(
+            const Text(
               'Available Transportation:',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: transportationOptions.length,
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 2,
-                    margin: EdgeInsets.symmetric(vertical: 5),
+                    margin: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
                       title: Text(transportationOptions[index]['type']),
                       subtitle: Text(
@@ -86,20 +86,20 @@ class _TransportationPageState extends State<TransportationPage> {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Transportation Booking Form
             if (selectedTransportation != null) ...[
               Text(
                 'Book ${selectedTransportation!['type']}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 controller: _dateController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Date',
                   hintText: 'Select a date',
                   suffixIcon: Icon(Icons.calendar_today),
@@ -121,25 +121,25 @@ class _TransportationPageState extends State<TransportationPage> {
                   }
                 },
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 controller: _passengerNameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Passenger Name',
                   hintText: 'Enter your name',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 controller: _passengerPhoneController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Passenger Phone',
                   hintText: 'Enter your phone number',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   if (_dateController.text.isNotEmpty &&
@@ -149,7 +149,7 @@ class _TransportationPageState extends State<TransportationPage> {
                     _showConfirmationDialog(context);
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: Text('Please fill all fields.'),
                         duration: Duration(seconds: 2),
                       ),
@@ -157,10 +157,10 @@ class _TransportationPageState extends State<TransportationPage> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   backgroundColor: Colors.blue,
                 ),
-                child: Text(
+                child: const Text(
                   'Book Transportation',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
@@ -178,7 +178,7 @@ class _TransportationPageState extends State<TransportationPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Booking Confirmed'),
+          title: const Text('Booking Confirmed'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,14 +194,14 @@ class _TransportationPageState extends State<TransportationPage> {
               onPressed: () {
                 // Save the booking (you can add backend logic here)
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('Transportation booked successfully!'),
                     duration: Duration(seconds: 2),
                   ),
                 );
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppointmentPage extends StatefulWidget {
+  const AppointmentPage({super.key});
+
   @override
   _AppointmentPageState createState() => _AppointmentPageState();
 }
@@ -46,7 +48,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Book Appointment'),
+        title: const Text('Book Appointment'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -54,23 +56,23 @@ class _AppointmentPageState extends State<AppointmentPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // List of Institution Members
-            Text(
+            const Text(
               'Select a Member:',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: members.length,
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 2,
-                    margin: EdgeInsets.symmetric(vertical: 5),
+                    margin: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
-                      leading: Icon(Icons.person, color: Colors.blue),
+                      leading: const Icon(Icons.person, color: Colors.blue),
                       title: Text(members[index]['name']),
                       subtitle: Text(
                         '${members[index]['role']} - ${members[index]['availability']}',
@@ -88,24 +90,24 @@ class _AppointmentPageState extends State<AppointmentPage> {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Appointment Booking Form
             if (selectedMember != null) ...[
               Text(
                 'Book Appointment with ${selectedMember!['name']}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Form(
                 key: _formKey,
                 child: Column(
                   children: [
                     TextFormField(
                       controller: _dateController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Date',
                         hintText: 'Select a date',
                         suffixIcon: Icon(Icons.calendar_today),
@@ -133,10 +135,10 @@ class _AppointmentPageState extends State<AppointmentPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextFormField(
                       controller: _timeController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Time',
                         hintText: 'Select a time',
                         suffixIcon: Icon(Icons.access_time),
@@ -161,10 +163,10 @@ class _AppointmentPageState extends State<AppointmentPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextFormField(
                       controller: _purposeController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Purpose',
                         hintText: 'Enter the purpose of the appointment',
                         border: OutlineInputBorder(),
@@ -177,7 +179,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -186,10 +188,10 @@ class _AppointmentPageState extends State<AppointmentPage> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 15),
+                        padding: const EdgeInsets.symmetric(vertical: 15),
                         backgroundColor: Colors.blue,
                       ),
-                      child: Text(
+                      child: const Text(
                         'Book Appointment',
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -210,7 +212,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Confirm Appointment'),
+          title: const Text('Confirm Appointment'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -226,20 +228,20 @@ class _AppointmentPageState extends State<AppointmentPage> {
               onPressed: () {
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             ElevatedButton(
               onPressed: () {
                 // Save the appointment (you can add backend logic here)
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('Appointment booked successfully!'),
                     duration: Duration(seconds: 2),
                   ),
                 );
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Confirm'),
+              child: const Text('Confirm'),
             ),
           ],
         );

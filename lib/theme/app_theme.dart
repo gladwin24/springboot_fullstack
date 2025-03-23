@@ -21,12 +21,10 @@ class AppTheme {
         primary: secondaryColor,
         secondary: accentColor,
         surface: surfaceColor,
-        background: backgroundColor,
         error: Color(0xFFFF3B30),
         onPrimary: Colors.white,
         onSecondary: Colors.white,
         onSurface: Colors.white,
-        onBackground: Colors.white,
       ),
       textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
       appBarTheme: const AppBarTheme(

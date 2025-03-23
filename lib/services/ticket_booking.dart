@@ -50,7 +50,7 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ticket Booking'),
+        title: const Text('Ticket Booking'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -58,21 +58,21 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // List of Available Events
-            Text(
+            const Text(
               'Available Events:',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: events.length,
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 2,
-                    margin: EdgeInsets.symmetric(vertical: 5),
+                    margin: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
                       title: Text(events[index]['name']),
                       subtitle: Text(
@@ -92,36 +92,36 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Ticket Booking Form
             if (selectedEvent != null) ...[
               Text(
                 'Book ${selectedEvent!['name']}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 controller: _attendeeNameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Attendee Name',
                   hintText: 'Enter your name',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 controller: _attendeeEmailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Attendee Email',
                   hintText: 'Enter your email',
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'Number of Tickets:',
                 style: TextStyle(
                   fontSize: 16,
@@ -131,7 +131,7 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
               Row(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.remove),
+                    icon: const Icon(Icons.remove),
                     onPressed: () {
                       setState(() {
                         if (numberOfTickets > 1) {
@@ -142,10 +142,10 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
                   ),
                   Text(
                     numberOfTickets.toString(),
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                   IconButton(
-                    icon: Icon(Icons.add),
+                    icon: const Icon(Icons.add),
                     onPressed: () {
                       setState(() {
                         numberOfTickets++;
@@ -154,7 +154,7 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   if (_attendeeNameController.text.isNotEmpty &&
@@ -163,7 +163,7 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
                     _generateTicket();
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: Text('Please fill all fields.'),
                         duration: Duration(seconds: 2),
                       ),
@@ -171,26 +171,26 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   backgroundColor: Colors.blue,
                 ),
-                child: Text(
+                child: const Text(
                   'Book Tickets',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
             ],
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Generated Ticket
             if (ticketId != null) ...[
-              Text(
+              const Text(
                 'Your Ticket:',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Card(
                 elevation: 4,
                 child: Padding(
@@ -233,7 +233,7 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Booking Confirmed'),
+          title: const Text('Booking Confirmed'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -250,7 +250,7 @@ class _TicketBookingPageState extends State<TicketBookingPage> {
               onPressed: () {
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );

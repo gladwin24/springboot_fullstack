@@ -1,0 +1,15 @@
+com\institutional\management\service\AuthService.class
+com\institutional\management\controller\UserController.class
+com\institutional\management\dto\AuthRequest.class
+com\institutional\management\security\JwtUtils.class
+com\institutional\management\ManagementApplication.class
+com\institutional\management\entity\Student.class
+com\institutional\management\dto\RegisterRequest.class
+com\institutional\management\security\SecurityConfig.class
+com\institutional\management\security\JwtAuthenticationFilter.class
+com\institutional\management\service\UserService.class
+com\institutional\management\entity\User.class
+com\institutional\management\dto\AuthResponse.class
+com\institutional\management\controller\AuthController.class
+com\institutional\management\entity\Teacher.class
+com\institutional\management\repository\UserRepository.class

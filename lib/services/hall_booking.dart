@@ -54,7 +54,7 @@ class _HallBookingPageState extends State<HallBookingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hall Booking'),
+        title: const Text('Hall Booking'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -62,21 +62,21 @@ class _HallBookingPageState extends State<HallBookingPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // List of Available Halls
-            Text(
+            const Text(
               'Available Halls:',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: halls.length,
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 2,
-                    margin: EdgeInsets.symmetric(vertical: 5),
+                    margin: const EdgeInsets.symmetric(vertical: 5),
                     child: ListTile(
                       title: Text(halls[index]['name']),
                       subtitle: Text('Capacity: ${halls[index]['capacity']}'),
@@ -95,20 +95,20 @@ class _HallBookingPageState extends State<HallBookingPage> {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Hall Booking Form
             if (selectedHall != null) ...[
               Text(
                 'Book ${selectedHall!['name']}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextFormField(
                 controller: _dateController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Date',
                   hintText: 'Select a date',
                   suffixIcon: Icon(Icons.calendar_today),
@@ -132,16 +132,16 @@ class _HallBookingPageState extends State<HallBookingPage> {
                   }
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               if (selectedDate != null) ...[
-                Text(
+                const Text(
                   'Available Time Slots:',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Column(
                   children: selectedHall!['timeSlots']
                       .where((slot) => slot['date'] == selectedDate)
@@ -150,7 +150,7 @@ class _HallBookingPageState extends State<HallBookingPage> {
                       children: slot['slots'].map<Widget>((timeSlot) {
                         return Card(
                           elevation: 2,
-                          margin: EdgeInsets.symmetric(vertical: 5),
+                          margin: const EdgeInsets.symmetric(vertical: 5),
                           child: ListTile(
                             title: Text(timeSlot),
                             onTap: () {
@@ -168,7 +168,7 @@ class _HallBookingPageState extends State<HallBookingPage> {
                   }).toList(),
                 ),
               ],
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               if (selectedTimeSlot != null) ...[
                 ElevatedButton(
                   onPressed: () {
@@ -176,10 +176,10 @@ class _HallBookingPageState extends State<HallBookingPage> {
                     _showConfirmationDialog(context);
                   },
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 15),
                     backgroundColor: Colors.blue,
                   ),
-                  child: Text(
+                  child: const Text(
                     'Book Hall',
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
@@ -198,7 +198,7 @@ class _HallBookingPageState extends State<HallBookingPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Confirm Booking'),
+          title: const Text('Confirm Booking'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,20 +213,20 @@ class _HallBookingPageState extends State<HallBookingPage> {
               onPressed: () {
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             ElevatedButton(
               onPressed: () {
                 // Save the booking (you can add backend logic here)
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('Hall booked successfully!'),
                     duration: Duration(seconds: 2),
                   ),
                 );
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Confirm'),
+              child: const Text('Confirm'),
             ),
           ],
         );

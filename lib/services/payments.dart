@@ -34,7 +34,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Make Payment'),
+        title: const Text('Make Payment'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,7 +46,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
               // Amount Field
               TextFormField(
                 controller: _amountController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Amount',
                   hintText: 'Enter the amount',
                   border: OutlineInputBorder(),
@@ -62,11 +62,11 @@ class _PaymentsPageState extends State<PaymentsPage> {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Payment Method Dropdown
               DropdownButtonFormField<String>(
                 value: _selectedPaymentMethod,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Payment Method',
                   border: OutlineInputBorder(),
                 ),
@@ -88,18 +88,18 @@ class _PaymentsPageState extends State<PaymentsPage> {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Description Field
               TextFormField(
                 controller: _descriptionController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Description',
                   hintText: 'Enter a description (optional)',
                   border: OutlineInputBorder(),
                 ),
                 maxLines: 3,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Submit Button
               ElevatedButton(
                 onPressed: () {
@@ -109,10 +109,10 @@ class _PaymentsPageState extends State<PaymentsPage> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   backgroundColor: Colors.blue,
                 ),
-                child: Text(
+                child: const Text(
                   'Make Payment',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
@@ -130,7 +130,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Confirm Payment'),
+          title: const Text('Confirm Payment'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,20 +146,20 @@ class _PaymentsPageState extends State<PaymentsPage> {
               onPressed: () {
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             ElevatedButton(
               onPressed: () {
                 // Process the payment (you can add backend logic here)
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('Payment processed successfully!'),
                     duration: Duration(seconds: 2),
                   ),
                 );
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Confirm'),
+              child: const Text('Confirm'),
             ),
           ],
         );

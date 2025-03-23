@@ -23,7 +23,7 @@ class ProfilePage extends StatelessWidget {
               Shadow(
                 blurRadius: 4.0,
                 color: Colors.black.withOpacity(0.3),
-                offset: Offset(2.0, 2.0),
+                offset: const Offset(2.0, 2.0),
               ),
             ],
           ),
@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
         elevation: 0, // Remove app bar shadow
         actions: [
           IconButton(
-            icon: Icon(Icons.edit, color: Colors.white),
+            icon: const Icon(Icons.edit, color: Colors.white),
             onPressed: () {
               // Navigate to edit profile page
               _navigateToEditProfile(context);
@@ -67,9 +67,9 @@ class ProfilePage extends StatelessWidget {
             children: [
               // Profile Picture Section
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(
+                  borderRadius: const BorderRadius.vertical(
                     bottom: Radius.circular(30),
                   ),
                   gradient: LinearGradient(
@@ -85,7 +85,7 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.all(4), // Border width
+                        padding: const EdgeInsets.all(4), // Border width
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -100,19 +100,19 @@ class ProfilePage extends StatelessWidget {
                           backgroundImage: AssetImage(profileImageUrl),
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Text(
                         userName,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         userEmail,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.white70,
                         ),
@@ -121,7 +121,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // User Bio Section
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -147,7 +147,7 @@ class ProfilePage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'About Me',
                             style: TextStyle(
                               fontSize: 18,
@@ -155,10 +155,10 @@ class ProfilePage extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(height: 8),
+                          const SizedBox(height: 8),
                           Text(
                             userBio,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.white70,
                             ),
@@ -169,7 +169,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Additional Information Section
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -195,9 +195,9 @@ class ProfilePage extends StatelessWidget {
                       child: Column(
                         children: [
                           _buildInfoRow(Icons.phone, 'Phone', '+1 234 567 890'),
-                          Divider(color: Colors.white70),
+                          const Divider(color: Colors.white70),
                           _buildInfoRow(Icons.location_on, 'Address', '123 Main St, City, Country'),
-                          Divider(color: Colors.white70),
+                          const Divider(color: Colors.white70),
                           _buildInfoRow(Icons.calendar_today, 'Joined', 'January 2023'),
                         ],
                       ),
@@ -205,7 +205,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Logout Button
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -217,13 +217,13 @@ class ProfilePage extends StatelessWidget {
                       _logout(context);
                     },
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 15),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       backgroundColor: Colors.red.shade400,
                     ),
-                    child: Text(
+                    child: const Text(
                       'Logout',
                       style: TextStyle(
                         fontSize: 18,
@@ -233,7 +233,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -246,21 +246,21 @@ class ProfilePage extends StatelessWidget {
     return Row(
       children: [
         Icon(icon, color: Colors.white),
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               label,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 color: Colors.white70,
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
               value,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -276,7 +276,7 @@ class ProfilePage extends StatelessWidget {
   void _navigateToEditProfile(BuildContext context) {
     // Add navigation logic to edit profile page
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Navigate to Edit Profile Page')),
+      const SnackBar(content: Text('Navigate to Edit Profile Page')),
     );
   }
 
@@ -284,7 +284,7 @@ class ProfilePage extends StatelessWidget {
   void _logout(BuildContext context) {
     // Add logout logic (e.g., clear session and navigate to login page)
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Logged Out Successfully')),
+      const SnackBar(content: Text('Logged Out Successfully')),
     );
     Navigator.pushReplacementNamed(context, '/login');
   }
