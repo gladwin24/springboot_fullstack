@@ -18,7 +18,7 @@ class ServicesPage extends StatelessWidget {
       'color': Color(0xFF007AFF),
       'description': 'Book appointments with faculty or staff.',
       'gradient': [Color(0xFF007AFF), Color(0xFF0055B3)],
-      'image': 'assets/images/services/appointment.png',
+      'image': 'https://via.placeholder.com/300?text=Appointment',
     },
     {
       'title': 'Accommodations',
@@ -26,7 +26,7 @@ class ServicesPage extends StatelessWidget {
       'color': Color(0xFF00C853),
       'description': 'View and book accommodations.',
       'gradient': [Color(0xFF00C853), Color(0xFF009624)],
-      'image': 'assets/images/services/accommodation.png',
+      'image': 'https://via.placeholder.com/300?text=Accommodations',
     },
     {
       'title': 'Hall Booking',
@@ -34,7 +34,7 @@ class ServicesPage extends StatelessWidget {
       'color': Color(0xFFFF9500),
       'description': 'Book halls for events and meetings.',
       'gradient': [Color(0xFFFF9500), Color(0xFFCC7700)],
-      'image': 'assets/images/services/hall.png',
+      'image': 'https://via.placeholder.com/300?text=Hall+Booking',
     },
     {
       'title': 'Payments',
@@ -42,7 +42,7 @@ class ServicesPage extends StatelessWidget {
       'color': Color(0xFF5856D6),
       'description': 'Make and manage payments.',
       'gradient': [Color(0xFF5856D6), Color(0xFF4644AB)],
-      'image': 'assets/images/services/payment.png',
+      'image': 'https://via.placeholder.com/300?text=Payments',
     },
     {
       'title': 'Ticket Booking',
@@ -50,7 +50,7 @@ class ServicesPage extends StatelessWidget {
       'color': Color(0xFFFF3B30),
       'description': 'Book tickets for events.',
       'gradient': [Color(0xFFFF3B30), Color(0xFFCC2F26)],
-      'image': 'assets/images/services/ticket.png',
+      'image': 'https://via.placeholder.com/300?text=Ticket+Booking',
     },
     {
       'title': 'Canteen',
@@ -58,7 +58,7 @@ class ServicesPage extends StatelessWidget {
       'color': Color(0xFF32ADE6),
       'description': 'Order food and view menu.',
       'gradient': [Color(0xFF32ADE6), Color(0xFF288BB8)],
-      'image': 'assets/images/services/canteen.png',
+      'image': 'https://via.placeholder.com/300?text=Canteen',
     },
     {
       'title': 'Transportation',
@@ -66,7 +66,7 @@ class ServicesPage extends StatelessWidget {
       'color': Color(0xFFAF52DE),
       'description': 'View bus schedules and routes.',
       'gradient': [Color(0xFFAF52DE), Color(0xFF8C42B2)],
-      'image': 'assets/images/services/transport.png',
+      'image': 'https://via.placeholder.com/300?text=Transportation',
     },
   ];
 
@@ -172,11 +172,18 @@ class ServicesPage extends StatelessWidget {
               Positioned.fill(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    service['image'],
+                  child: CachedNetworkImage(
+                    imageUrl: service['image'],
                     fit: BoxFit.cover,
                     color: Colors.white.withOpacity(0.1),
                     colorBlendMode: BlendMode.overlay,
+                    placeholder: (context, url) => Container(
+                      color: service['color'].withOpacity(0.3),
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      color: service['color'].withOpacity(0.3),
+                      child: Icon(service['icon'], color: Colors.white.withOpacity(0.2), size: 48),
+                    ),
                   ),
                 ),
               ),

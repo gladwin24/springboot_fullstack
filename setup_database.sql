@@ -1,6 +1,20 @@
 CREATE DATABASE IF NOT EXISTS institutional_management;
 USE institutional_management;
 
+-- Create users table
+CREATE TABLE IF NOT EXISTS users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    fullName VARCHAR(100) NOT NULL,
+    role VARCHAR(20) NOT NULL DEFAULT 'USER',
+    phoneNumber VARCHAR(20),
+    address TEXT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
 -- Create events table
 CREATE TABLE IF NOT EXISTS events (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -25,6 +39,11 @@ CREATE TABLE IF NOT EXISTS news (
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+-- Insert sample admin user (password: admin123)
+INSERT INTO users (username, password, email, fullName, role)
+VALUES 
+('admin', '$2a$10$rS.bCqUUF1QhaPF6TkFpfOcPFKxN0RIcY7VKD.q8H.TQKUJzXGK.O', 'admin@example.com', 'System Administrator', 'ADMIN');
 
 -- Insert sample events
 INSERT INTO events (title, description, dateTime, location, imageUrl, isActive, createdAt, updatedAt)

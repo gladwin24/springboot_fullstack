@@ -9,15 +9,54 @@ class AuthService extends ChangeNotifier {
   String? _token;
   String? _userRole;
 
+  // Base URL for API
+  static const String _baseUrl = 'http://localhost:8080/api';
+
   bool get isAuthenticated => _isAuthenticated;
   String? get token => _token;
   String? get userRole => _userRole;
 
+  Future<bool> register({
+    required String username,
+    required String fullName,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$_baseUrl/auth/register'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'username': username,
+          'password': password,
+          'email': email,
+          'fullName': fullName,
+          'role': 'USER', // Default role for new registrations
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        return true;
+      }
+      
+      // Try to parse error message from response
+      try {
+        final error = json.decode(response.body);
+        throw Exception(error['message'] ?? error['error'] ?? 'Registration failed');
+      } catch (e) {
+        // If can't parse JSON, use the raw response
+        throw Exception('Registration failed: ${response.body}');
+      }
+    } catch (e) {
+      print('Registration error: $e');
+      rethrow;
+    }
+  }
+
   Future<bool> login(String username, String password) async {
     try {
-      // TODO: Replace with your actual API endpoint
       final response = await http.post(
-        Uri.parse('http://your-api-url/api/auth/login'),
+        Uri.parse('$_baseUrl/auth/login'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'username': username,
