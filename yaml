@@ -1,0 +1,47 @@
+
+---
+
+That’ll give the illusion of professionalism and coherence. Amazing what some Markdown and lies can do.
+
+---
+
+## 🧙‍♂️ STEP 2: Profile README (`gladwin24/gladwin24` repo)
+
+Go create a **new repo called exactly** `gladwin24` (yes, same as your username). Add a `README.md`. Dump this in:
+
+---
+
+```markdown
+### Hi there, I'm Gladwin 👋
+
+I'm a final-year Computer Science student passionate about backend development, full-stack web apps, and solving real-world problems with clean code and caffeine.
+
+---
+
+### 🔧 Technologies & Tools
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![MySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+---
+
+### 📈 GitHub Stats
+
+![Gladwin's GitHub Stats](https://github-readme-stats.vercel.app/api?username=gladwin24&show_icons=true&theme=radical)
+
+---
+
+### 🛠️ Pinned Projects
+
+Check out my pinned repos for:
+- 🔄 Full-stack applications (Spring Boot + React)
+- 💻 DSA and problem-solving solutions in Java
+- ⚙️ Backend experiments and API building
+
+---
+
+Let's connect and build something cool (or at least functional).
+
