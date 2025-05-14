@@ -1,0 +1,32 @@
+# Full Stack Web Application - Spring Boot + React
+
+This project is a full-stack web application built using **Spring Boot** (backend) and **React.js** (frontend). It demonstrates how to build and connect a RESTful API with a modern frontend interface.
+
+## 💡 Features
+
+- User registration and authentication
+- CRUD operations using RESTful APIs
+- React frontend with responsive UI
+- Spring Boot backend with JPA and Hibernate
+- MySQL/PostgreSQL database integration (configurable)
+- Cross-origin communication enabled via CORS
+
+## 🔧 Tech Stack
+
+**Frontend:**
+- React.js
+- Axios
+- Bootstrap / Tailwind (or whatever you used, don’t lie)
+
+**Backend:**
+- Spring Boot
+- Spring Data JPA
+- MySQL / PostgreSQL
+- Maven
+
+## 🚀 How to Run
+
+### Backend (Spring Boot)
+```bash
+cd backend
+./mvnw spring-boot:run
